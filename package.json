@@ -1,6 +1,6 @@
 {
   "name": "px",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Posix cross platform npm scripts.",
   "repository": "parro-it/px",
   "author": "Andrea Parodi <andrea@parro.it>",
