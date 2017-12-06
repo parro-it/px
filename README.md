@@ -12,10 +12,10 @@
 
 <p align="center">
   <a href="http://travis-ci.org/parro-it/px">
-    <img alt="travis build status" src="https://img.shields.io/travis/parro-it/px/master.svg?style=flat-square">
+    <img alt="travis build status" src="https://img.shields.io/travis/parro-it/px/master.svg?style=for-the-badge">
   </a>
-  <a href="https://npmjs.org/package/px">
-    <img alt="npm downloads" src="https://img.shields.io/npm/dt/px.svg&style=flat-square">
+  <a href="https://npmjs.org/package/@posix/px">
+    <img alt="npm" src="https://img.shields.io/npm/v/@posix/px.svg?style=for-the-badge">
   </a>
 </p>
 
