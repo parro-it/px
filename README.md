@@ -1,4 +1,6 @@
-![px Banner](https://raw.githubusercontent.com/parro-īt/px/master/images/px.png)
+<p align="center">
+  <img alt="px banner" src="https://raw.githubusercontent.com/parro-it/px/master/images/logo.png">
+</p>
 
 <h2 align="center">Posix cross platform npm scripts.</h2>
 
