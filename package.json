@@ -1,25 +1,38 @@
 {
-  "name": "$package_name",
+  "name": "px",
   "version": "0.0.0",
-  "description": "$package_description",
-  "repository": "$package_author/$package_name",
-  "author": "$package_author_name <$package_author_email>",
+  "description": "Posix cross platform npm scripts.",
+  "repository": "parro-it/px",
+  "author": "Andrea Parodi <andrea@parro.it>",
   "license": "MIT",
-  "files": ["index.js", "example.js"],
+  "files": [
+    "index.js",
+    "example.js"
+  ],
   "scripts": {
     "test": "ava && linterjs .",
     "dev": "ava --watch & linterjs . --watch",
     "start": "node -r @std/esm ./index.js",
     "doc": "documentation readme index.js --section=API"
   },
-  "engines": { "node": ">8.8" },
+  "engines": {
+    "node": ">8.8"
+  },
   "keywords": [],
   "tonicExampleFilename": "example.js",
   "ava": {
-    "require": ["@std/esm"]
+    "require": [
+      "@std/esm"
+    ]
   },
   "@std/esm": {
     "esm": "js",
     "cjs": true
+  },
+  "devDependencies": {
+    "@std/esm": "^0.18.0",
+    "ava": "^0.24.0",
+    "documentation": "^5.3.3",
+    "linterjs": "^1.11.0"
   }
 }

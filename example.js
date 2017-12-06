@@ -1,3 +1,3 @@
-const $package_var = require("$package_name");
+const px = require("px");
 
-console.log({ $package_var });
+console.log({ px });
