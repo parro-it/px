@@ -1,11 +1,21 @@
-# px
+![px Banner](https://raw.githubusercontent.com/parro-īt/px/master/images/px.png)
 
-[![Travis Build Status](https://img.shields.io/travis/parro-it/px/master.svg)](http://travis-ci.org/parro-it/px)
-[![NPM downloads](https://img.shields.io/npm/dt/px.svg)](https://npmjs.org/package/px)
+<h2 align="center">Posix cross platform npm scripts.</h2>
 
-> Posix cross platform npm scripts.
+<p align="center">
+  <em>
+  Write your npm scripts using posix bash syntax, cross platform
+  </em>
+</p>
 
-background details relevant to understanding what this module does
+<p align="center">
+  <a href="http://travis-ci.org/parro-it/px">
+    <img alt="travis build status" src="https://img.shields.io/travis/parro-it/px/master.svg?style=flat-square">
+  </a>
+  <a href="https://npmjs.org/package/px">
+    <img alt="npm downloads" src="https://img.shields.io/npm/dt/px.svg&style=flat-square">
+  </a>
+</p>
 
 ## Usage
 
