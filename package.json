@@ -6,12 +6,16 @@
   "author": "Andrea Parodi <andrea@parro.it>",
   "license": "MIT",
   "files": [
-    "index.js"
+    "index.js",
+    "src"
   ],
   "scripts": {
     "test": "ava && linterjs .",
     "dev": "ava --watch & linterjs . --watch",
     "start": "node -r @std/esm ./index.js"
+  },
+  "bin": {
+    "px": "src/cli.js"
   },
   "engines": {
     "node": ">8.8"
@@ -28,6 +32,7 @@
   },
   "devDependencies": {
     "ava": "^0.24.0",
+    "execa": "^0.8.0",
     "linterjs": "^1.11.0"
   },
   "dependencies": {

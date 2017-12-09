@@ -13,6 +13,7 @@ export default () => ({
       process.kill(proc, "SIGTERM");
     }
   },
+
   runAst(ast, stdio = true) {
     if (ast) {
       const enhancedAst = traverse(ast, runVisitor(this));
