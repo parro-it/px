@@ -9,6 +9,6 @@ test("run a command", async t => {
   ]);
   t.is(
     proc.stdout,
-    "/home/parro-it/repos/px/test\n/home/parro-it/repos/px/test/test-cli.js\n/home/parro-it/repos/px/test/test-runtime.js"
+    `${__dirname}\n${__dirname}/test-cli.js\n${__dirname}/test-runtime.js`
   );
 });
