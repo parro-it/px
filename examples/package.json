@@ -1,0 +1,17 @@
+{
+  "name": "examples",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo it work!",
+    "semicolon": "echo 1; echo 2",
+    "and": "echo 1 && echo 2",
+    "or": "false || echo '1\n2'"
+  },
+  "keywords": [],
+  "author": "Andrea Parodi <andrea@parro.it>",
+  "license": "MIT",
+  "devDependencies": {
+    "@posix/px": "file:.."
+  }
+}
