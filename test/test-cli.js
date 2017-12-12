@@ -13,6 +13,12 @@ test("run a command", async t => {
   );
 });
 
+test.before("install examples deps", async () => {
+  await execa("npm", ["install"], {
+    cwd: `${__dirname}/../examples`
+  });
+});
+
 test("use npm run", async t => {
   const proc = await execa("npm", ["run", "test"], {
     cwd: `${__dirname}/../examples`

@@ -19,19 +19,54 @@
   </a>
 </p>
 
+## Features
+
+* Command sequences
+
+_Execute a set of command serially_
+
+```bash
+command1; command2;
+```
+
+* Command sequences
+
+_Execute a set of command serially_
+
+```bash
+command1; command2; command3;
+```
+
+* Logical or
+
+_Execute commandB only if execution of commandA fail (exit code <> 0)_
+
+```bash
+command1 || command2
+```
+
+* Logical and
+
+_Execute commandB only if execution of commandA succeed (exit code = 0)_
+
+```bash
+command1 && command2
+```
+
 ## Usage
 
 description of the example
 
 ```js
-const px = require('px');
+const px = require("px");
 
-console.log({px});
+console.log({ px });
 ```
 
 This will output
 
 ```
+
 ```
 
 ## API
@@ -46,9 +81,8 @@ npm install --save px
 
 ## See Also
 
-- [`noffle/common-readme`](https://github.com/noffle/common-readme)
+* [`noffle/common-readme`](https://github.com/noffle/common-readme)
 
 ## License
 
 MIT
-
