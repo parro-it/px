@@ -13,36 +13,31 @@ test("run a command", async t => {
   );
 });
 
+async function runNpm(...args) {
+  const proc = await execa("npm", ["--silent", "run"].concat(args), {
+    cwd: `${__dirname}/../examples`
+  });
+  return proc.stdout;
+}
+
 test.before("install examples deps", async () => {
-  await execa("npm", ["install"], {
+  await execa("npm", ["--silent", "install"], {
     cwd: `${__dirname}/../examples`
   });
 });
 
 test("use npm run", async t => {
-  const proc = await execa("npm", ["run", "test"], {
-    cwd: `${__dirname}/../examples`
-  });
-  t.is(proc.stdout, `it work!`);
+  t.is(await runNpm("test"), `it work!`);
 });
 
 test("semicolon", async t => {
-  const proc = await execa("npm", ["run", "semicolon"], {
-    cwd: `${__dirname}/../examples`
-  });
-  t.is(proc.stdout, `1\n2`);
+  t.is(await runNpm("semicolon"), `1\n2`);
 });
 
 test("logical and", async t => {
-  const proc = await execa("npm", ["run", "and"], {
-    cwd: `${__dirname}/../examples`
-  });
-  t.is(proc.stdout, `1\n2`);
+  t.is(await runNpm("and"), `1\n2`);
 });
 
 test("logical or", async t => {
-  const proc = await execa("npm", ["run", "or"], {
-    cwd: `${__dirname}/../examples`
-  });
-  t.is(proc.stdout, `1\n2`);
+  t.is(await runNpm("or"), `1\n2`);
 });

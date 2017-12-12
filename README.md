@@ -26,14 +26,6 @@
 _Execute a set of command serially_
 
 ```bash
-command1; command2;
-```
-
-* Command sequences
-
-_Execute a set of command serially_
-
-```bash
 command1; command2; command3;
 ```
 
