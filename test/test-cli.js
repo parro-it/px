@@ -74,3 +74,4 @@ test.todo("no-overwriting redirection of stdout");
 test.todo("variable expansion");
 test.todo("glob expansion");
 test.todo("tilde expansion");
+test.todo("numbered redirections");
