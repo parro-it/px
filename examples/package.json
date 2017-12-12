@@ -8,7 +8,8 @@
     "and": "echo 1 && echo 2",
     "or": "false || echo 1",
     "env": "var=42 node -p 'process.env.var'",
-    "parallel": "node -e 'setTimeout(()=>console.log(2),200)' & node -e 'setTimeout(()=>console.log(1),100)'"
+    "parallel":
+      "node -e 'setTimeout(()=>console.log(2),600)' & node -e 'setTimeout(()=>console.log(1),100)'"
   },
   "keywords": [],
   "author": "Andrea Parodi <andrea@parro.it>",
