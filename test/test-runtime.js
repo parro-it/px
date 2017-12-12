@@ -60,11 +60,13 @@ test.only("redirect stdout", async t => {
 
 test("redirect stdin", async t => {
   const runtime = runtimeFactory();
-  await unlink(join(tmpdir(), "piper42bis")).catch(() => 0);
+  const tmpFile = join(__dirname, "piper42bis");
 
-  await writeFile(join(tmpdir(), "piper42bis"), "aa df ab ff");
-  const proc = runtime.run(`wc -w < ${join(tmpdir(), "piper42bis")}`, false);
+  await unlink(tmpFile).catch(() => 0);
+
+  await writeFile(tmpFile, "aa df ab ff");
+  const proc = runtime.run(`echo < ${tmpFile.replace(/\\/g, "\\\\")}`, false);
 
   const ret = await proc.stdout.utf8String();
-  t.is(ret, "4");
+  t.is(ret, "aa df ab ff");
 });

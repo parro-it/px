@@ -9,7 +9,7 @@ const setupRedirectionForProcess = proc => node => {
       if (node.numberIo === 2) {
         proc.errorTo(node.file.text);
       }
-      console.error("proc.outputTo", node.file.text);
+      console.error("proc.outputTo", node);
       proc.outputTo(node.file.text);
     }
   }
