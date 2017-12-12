@@ -16,6 +16,7 @@ const setupRedirectionForProcess = proc => node => {
 
 export const externalProcess = command => {
   const commandId = command.name.text;
+
   const args = command.suffix
     .concat(command.prefix)
     .filter(node => node.type === "Word")

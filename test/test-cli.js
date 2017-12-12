@@ -45,3 +45,7 @@ test("logical or", async t => {
 test("setting env variable", async t => {
   t.is(await runNpm("env"), `42`);
 });
+
+test("asynchronous execution of a process", async t => {
+  t.is(await runNpm("parallel"), `1\n2`);
+});

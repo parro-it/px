@@ -16,18 +16,26 @@ class ScriptCommand extends AbstractCommand {
       this.stdin.pipe(cmd.process.stdin, { end: false });
     };
 
+    const executingAsync = [];
     for (const cmd of this.node.commands.slice(0, -1)) {
       pipe(cmd);
-      await cmd.process.start(runtimeEnv);
+      const result = cmd.process.start(runtimeEnv);
+      if (cmd.async) {
+        executingAsync.push(result);
+      } else {
+        await result;
+      }
     }
 
     const lastCmd = this.node.commands[this.node.commands.length - 1];
     pipe(lastCmd);
-    const exitCode = await lastCmd.process.start(runtimeEnv);
+    const exitCode = lastCmd.process.start(runtimeEnv);
+
+    const results = await Promise.all([exitCode].concat(executingAsync));
 
     this.emit("exit", 0);
     debug("done script");
-    return exitCode;
+    return results[0];
   }
 }
 
