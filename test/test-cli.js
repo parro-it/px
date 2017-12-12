@@ -32,13 +32,16 @@ async function runNpm(...args) {
 test.before("install examples deps", async () => {
   try {
     if (process.platform === "win32") {
-      await writeFile(".npmrc", 'script-shell = "px.cmd"\n');
+      await writeFile(
+        `${__dirname}/../examples/.npmrc`,
+        'script-shell = "px.cmd"\n'
+      );
     }
     await execa("npm", ["install"], {
       cwd: `${__dirname}/../examples`
     });
   } catch (err) {
-    console.error(err);
+    console.error("before tests", err);
   }
 });
 
