@@ -85,7 +85,7 @@ $ echo 'script-shell = "px"\n' > .npmrc
 **_on windows you shall use px.cmd:_**
 
 ```bash
-$ echo 'script-shell = "px.cmd"\n"' > .npmrc
+$ echo 'script-shell = "px.cmd"\n' > .npmrc
 ```
 
 ## See Also
