@@ -24,7 +24,7 @@
 
 ## Features
 
-####Command sequences
+#### Command sequences
 
 > _Execute a set of command serially_
 

@@ -14,11 +14,15 @@ test("run a command", async t => {
 });
 
 async function runNpm(...args) {
-  const proc = await execa("npm", ["--silent", "run"].concat(args), {
-    cwd: `${__dirname}/../examples`
-  });
-  console.error(proc.stderr);
-  return proc.stdout;
+  try {
+    const proc = await execa("npm", ["--silent", "run"].concat(args), {
+      cwd: `${__dirname}/../examples`
+    });
+    console.error(proc.stderr);
+    return proc.stdout;
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 test.before("install examples deps", async () => {
