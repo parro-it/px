@@ -10,6 +10,7 @@ test("run a command", async t => {
     "-c",
     `echo ${__dirname}`
   ]);
+  console.error({ o: proc.stdout });
   t.is(proc.stdout, __dirname);
 });
 
