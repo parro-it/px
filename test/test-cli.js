@@ -34,7 +34,7 @@ test.before("install examples deps", async () => {
     if (process.platform === "win32") {
       await writeFile(".npmrc", 'script-shell = "px.cmd"\n');
     }
-    await execa("npm", ["--silent", "install"], {
+    await execa("npm", ["install"], {
       cwd: `${__dirname}/../examples`
     });
   } catch (err) {
