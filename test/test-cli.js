@@ -8,10 +8,10 @@ test("run a command", async t => {
   const proc = await execa("node", [
     `${__dirname}/../src/cli.js`,
     "-c",
-    `echo ${__dirname}`
+    `echo 42`
   ]);
   console.error({ o: proc.stdout });
-  t.is(proc.stdout, __dirname);
+  t.is(proc.stdout, 42);
 });
 
 async function runNpm(...args) {
