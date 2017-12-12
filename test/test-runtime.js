@@ -45,7 +45,7 @@ const trim = promisedString => promisedString.then(s => s.trim());
 
 test.only("redirect stdout", async t => {
   const runtime = runtimeFactory();
-  const tmpFile = join(tmpdir(), "piper42");
+  const tmpFile = join(__dirname, "piper42");
   console.error(tmpFile);
   await unlink(tmpFile).catch(() => 0);
 
