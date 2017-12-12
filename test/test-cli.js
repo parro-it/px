@@ -24,17 +24,22 @@ async function runNpm(...args) {
 
     return proc.stdout;
   } catch (err) {
-    return err;
+    console.error(err);
+    return null;
   }
 }
 
 test.before("install examples deps", async () => {
-  if (process.platform === "win32") {
-    await writeFile(".npmrc", 'script-shell = "px.cmd"\n');
+  try {
+    if (process.platform === "win32") {
+      await writeFile(".npmrc", 'script-shell = "px.cmd"\n');
+    }
+    await execa("npm", ["--silent", "install"], {
+      cwd: `${__dirname}/../examples`
+    });
+  } catch (err) {
+    console.error(err);
   }
-  await execa("npm", ["--silent", "install"], {
-    cwd: `${__dirname}/../examples`
-  });
 });
 
 test("use npm run", async t => {
