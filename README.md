@@ -11,15 +11,19 @@
 </p>
 
 <p align="center">
+  ⌘
   <a href="http://travis-ci.org/parro-it/px">
-    <img alt="travis build status" src="https://img.shields.io/travis/parro-it/px/master.svg?style=for-the-badge">
+    <img alt="travis build status" src="https://img.shields.io/travis/parro-it/px/master.svg?style=plastic">
   </a>
+  ⌘
   <a href="https://npmjs.org/package/@posix/px">
-    <img alt="npm" src="https://img.shields.io/npm/v/@posix/px.svg?style=for-the-badge">
+    <img alt="npm" src="https://img.shields.io/npm/v/@posix/px.svg?style=plastic">
   </a>
-  <a href="https://npmjs.org/package/@posix/px">
-    <img alt="npm" src="https://img.shields.io/npm/v/@posix/px.svg?style=for-the-badge">
+  ⌘
+  <a href="https://ci.appveyor.com/project/parro-it/px">
+    <img alt="npm" src="https://img.shields.io/appveyor/ci/parro-it/px.svg?style=plastic">
   </a>
+  ⌘
 </p>
 
 ## Features
