@@ -50,7 +50,7 @@ test.only("redirect stdout", async t => {
   await unlink(tmpFile).catch(() => 0);
 
   const proc = runtime.run(
-    `echo aa df ab ff > ${tmpFile.replace("\\", "\\\\")}`,
+    `echo aa df ab ff > ${tmpFile.replace(/\\/g, "\\\\")}`,
     false
   );
 
