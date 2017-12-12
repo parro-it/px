@@ -21,7 +21,7 @@ async function runNpm(...args) {
     const proc = await execa("npm", ["--silent", "run"].concat(args), {
       cwd: `${__dirname}/../examples`
     });
-    console.error(proc.stdout, proc.stderr);
+    // ? console.error(proc.stdout, proc.stderr);
     return proc.stdout;
   } catch (err) {
     console.error(err);
