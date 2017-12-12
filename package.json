@@ -7,7 +7,7 @@
   "license": "MIT",
   "files": ["index.js", "src"],
   "scripts": {
-    "test": "cross-env DEBUG=ava ava",
+    "test": "ava && linterjs .",
     "dev": "ava --watch & linterjs . --watch",
     "start": "node -r @std/esm ./index.js"
   },
@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "ava": "^0.24.0",
-    "cross-env": "^5.1.1",
     "execa": "^0.8.0",
     "linterjs": "^1.11.0"
   },

@@ -24,36 +24,44 @@
 
 ## Features
 
-* Command sequences
+####Command sequences
 
-_Execute a set of command serially_
+> _Execute a set of command serially_
 
 ```bash
 command1; command2; command3;
 ```
 
-* Logical or
+#### Logical or
 
-_Execute commandB only if execution of commandA fail (exit code <> 0)_
+> _Execute commandB only if execution of commandA fail (exit code <> 0)_
 
 ```bash
 command1 || command2
 ```
 
-* Logical and
+#### Logical and
 
-_Execute commandB only if execution of commandA succeed (exit code = 0)_
+> _Execute commandB only if execution of commandA succeed (exit code = 0)_
 
 ```bash
 command1 && command2
 ```
 
-* Setting environment variables
+#### Setting environment variables
 
-_Set an environment variable (could replace the use of cross-env)_
+> _Set an environment variable (could replace the use of cross-env)_
 
 ```bash
 DEBUG=cmd cmd
+```
+
+#### asynchronous execution of a process
+
+> _Run cmd1, cmd2 and cmd3 in parallel_
+
+```bash
+cmd1 & cmd2 & cmd3
 ```
 
 ## Usage
