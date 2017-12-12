@@ -68,5 +68,6 @@ test("redirect stdin", async t => {
   const proc = runtime.run(`cat < ${tmpFile.replace(/\\/g, "\\\\")}`, false);
 
   const ret = await proc.stdout.utf8String();
+  await unlink(tmpFile).catch(() => 0);
   t.is(ret, "aa df ab ff");
 });
