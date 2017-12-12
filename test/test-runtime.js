@@ -3,7 +3,6 @@ import runtimeFactory from "../src/runtime";
 import fs from "fs";
 import { promisify } from "util";
 import px from "..";
-import { tmpdir } from "os";
 import { join } from "path";
 
 test("exports a function", t => {
@@ -46,7 +45,6 @@ const trim = promisedString => promisedString.then(s => s.trim());
 test.only("redirect stdout", async t => {
   const runtime = runtimeFactory();
   const tmpFile = join(__dirname, "piper42");
-  console.error(tmpFile);
   await unlink(tmpFile).catch(() => 0);
 
   const proc = runtime.run(
@@ -55,7 +53,12 @@ test.only("redirect stdout", async t => {
   );
 
   await proc.exitCode;
-  t.is(await trim(readFile(tmpFile, "utf8")), "aa df ab ff");
+  console.log("reading file");
+  const result = await trim(readFile(tmpFile, "utf8"));
+  console.log({ result });
+  t.is(result, "aa df ab ff");
+  await unlink(tmpFile).catch(() => 0);
+  console.log("end");
 });
 
 test("redirect stdin", async t => {
