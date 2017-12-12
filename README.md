@@ -60,7 +60,7 @@ command1 && command2
 DEBUG=cmd cmd
 ```
 
-#### asynchronous execution of a process
+#### Asynchronous execution of a process
 
 > _Run cmd1, cmd2 and cmd3 in parallel_
 
@@ -70,34 +70,29 @@ cmd1 & cmd2 & cmd3
 
 ## Usage
 
-description of the example
-
-```js
-const px = require("px");
-
-console.log({ px });
-```
-
-This will output
-
-```
-
-```
-
-## API
-
-## Install
-
-With [npm](https://npmjs.org/) installed, run
+1. Install `px`:
 
 ```bash
-npm install --save px
+$ npm i @posix/px
+```
+
+2. Write a `.npmrc` file to configure it:
+
+```bash
+$ echo 'script-shell = "px"\n' > .npmrc
+```
+
+(on windows you shall use px.cmd)
+
+```bash
+$ echo 'script-shell = "px"\n' > .npmrc
 ```
 
 ## See Also
 
 * [`noffle/common-readme`](https://github.com/noffle/common-readme)
+* [`bash-parser`](https://github.com/vorpaljs/bash-parser)
 
 ## License
 
-MIT
+MIT - © 2017 Andrea Parodi

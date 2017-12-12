@@ -3,6 +3,8 @@ import runtimeFactory from "../src/runtime";
 import fs from "fs";
 import { promisify } from "util";
 import px from "..";
+import { tmpdir } from "os";
+import { join } from "path";
 
 test("exports a function", t => {
   t.is(typeof px, "function");
@@ -43,19 +45,23 @@ const trim = promisedString => promisedString.then(s => s.trim());
 
 test("redirect stdout", async t => {
   const runtime = runtimeFactory();
-  await unlink(`/tmp/piper42`).catch(() => 0);
+  await unlink(join(tmpdir(), "piper42")).catch(() => 0);
 
-  const proc = runtime.run("echo aa df ab ff | wc -w > /tmp/piper42", false);
+  const proc = runtime.run(
+    `echo aa df ab ff | wc -w > ${join(tmpdir(), "piper42")}`,
+    false
+  );
 
   await proc.exitCode;
-  t.is(await trim(readFile(`/tmp/piper42`, "utf8")), "4");
+  t.is(await trim(readFile(join(tmpdir(), "piper42"), "utf8")), "4");
 });
 
 test("redirect stdin", async t => {
   const runtime = runtimeFactory();
-  await unlink(`/tmp/piper42bsi`).catch(() => 0);
-  await writeFile(`/tmp/piper42bsi`, "aa df ab ff");
-  const proc = runtime.run("wc -w < /tmp/piper42bsi", false);
+  await unlink(join(tmpdir(), "piper42bis")).catch(() => 0);
+
+  await writeFile(join(tmpdir(), "piper42bis"), "aa df ab ff");
+  const proc = runtime.run(`wc -w < ${join(tmpdir(), "piper42bis")}`, false);
 
   const ret = await proc.stdout.utf8String();
   t.is(ret, "4");
