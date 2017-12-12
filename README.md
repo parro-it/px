@@ -17,6 +17,9 @@
   <a href="https://npmjs.org/package/@posix/px">
     <img alt="npm" src="https://img.shields.io/npm/v/@posix/px.svg?style=for-the-badge">
   </a>
+  <a href="https://npmjs.org/package/@posix/px">
+    <img alt="npm" src="https://img.shields.io/npm/v/@posix/px.svg?style=for-the-badge">
+  </a>
 </p>
 
 ## Features
@@ -43,6 +46,14 @@ _Execute commandB only if execution of commandA succeed (exit code = 0)_
 
 ```bash
 command1 && command2
+```
+
+* Setting environment variables
+
+_Set an environment variable (could replace the use of cross-env)_
+
+```bash
+DEBUG=cmd cmd
 ```
 
 ## Usage

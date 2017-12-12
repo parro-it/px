@@ -39,6 +39,7 @@
     "@std/esm": "^0.18.0",
     "bash-ast-traverser": "^0.5.0",
     "bash-parser": "^0.5.0",
+    "piper": "^0.4.1",
     "piper-process": "^1.2.0"
   }
 }

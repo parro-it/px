@@ -41,3 +41,7 @@ test("logical and", async t => {
 test("logical or", async t => {
   t.is(await runNpm("or"), `1\n2`);
 });
+
+test("setting env variable", async t => {
+  t.is(await runNpm("env"), `42`);
+});

@@ -21,6 +21,14 @@ export const externalProcess = command => {
     .filter(node => node.type === "Word")
     .map(word => word.text);
 
+  const environmentVars = command.prefix
+    .filter(node => node.type === "AssignmentWord")
+    .map(word => {
+      const [name, val] = word.text.split("=").map(part => part.trim());
+      return { [name]: val };
+    });
+  const env = Object.assign({}, process.env, ...environmentVars);
+
   const proc = cmd(commandId, ...args);
   const setupRedirection = setupRedirectionForProcess(proc);
   if (command.suffix) {
@@ -37,7 +45,7 @@ export const externalProcess = command => {
 
   const originalStart = proc.start;
   proc.start = runtime => {
-    const result = originalStart.call(proc);
+    const result = originalStart.call(proc, env);
     runtime.children.add(proc.pid);
     proc.on("exit", () => {
       runtime.children.delete(proc.pid);

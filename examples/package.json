@@ -6,7 +6,8 @@
     "test": "echo it work!",
     "semicolon": "echo 1; echo 2",
     "and": "echo 1 && echo 2",
-    "or": "false || echo '1\n2'"
+    "or": "false || echo '1\n2'",
+    "env": "var=42 node -p 'process.env.var'"
   },
   "keywords": [],
   "author": "Andrea Parodi <andrea@parro.it>",
