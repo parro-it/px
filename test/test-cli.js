@@ -1,5 +1,8 @@
 import test from "ava";
 import execa from "execa";
+import fs from "fs";
+import { promisify } from "util";
+const writeFile = promisify(fs.writeFile);
 
 test("run a command", async t => {
   const proc = await execa("node", [
@@ -15,17 +18,20 @@ test("run a command", async t => {
 
 async function runNpm(...args) {
   try {
-    const proc = await execa("npm", ["run"].concat(args), {
+    const proc = await execa("npm", ["--silent", "run"].concat(args), {
       cwd: `${__dirname}/../examples`
     });
-    console.error(proc.stderr);
+
     return proc.stdout;
   } catch (err) {
-    console.error(err);
+    return err;
   }
 }
 
 test.before("install examples deps", async () => {
+  if (process.platform === "win32") {
+    await writeFile(".npmrc", 'script-shell = "px.cmd"\n');
+  }
   await execa("npm", ["--silent", "install"], {
     cwd: `${__dirname}/../examples`
   });
@@ -44,7 +50,7 @@ test("logical and", async t => {
 });
 
 test("logical or", async t => {
-  t.is(await runNpm("or"), `1\n2`);
+  t.is(await runNpm("or"), `1`);
 });
 
 test("setting env variable", async t => {
