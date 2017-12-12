@@ -49,7 +49,10 @@ test.only("redirect stdout", async t => {
   console.error(tmpFile);
   await unlink(tmpFile).catch(() => 0);
 
-  const proc = runtime.run(`echo aa df ab ff > ${tmpFile}`, false);
+  const proc = runtime.run(
+    `echo aa df ab ff > ${tmpFile.replace("\\", "\\\\")}`,
+    false
+  );
 
   await proc.exitCode;
   t.is(await trim(readFile(tmpFile, "utf8")), "aa df ab ff");
