@@ -15,7 +15,7 @@ test("run a command", async t => {
 
 async function runNpm(...args) {
   try {
-    const proc = await execa("npm", ["--silent", "run"].concat(args), {
+    const proc = await execa("npm", ["run"].concat(args), {
       cwd: `${__dirname}/../examples`
     });
     console.error(proc.stderr);
