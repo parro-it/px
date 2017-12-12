@@ -82,10 +82,10 @@ $ npm i @posix/px
 $ echo 'script-shell = "px"\n' > .npmrc
 ```
 
-(on windows you shall use px.cmd)
+**_on windows you shall use px.cmd:_**
 
 ```bash
-$ echo 'script-shell = "px"\n' > .npmrc
+$ echo 'script-shell = "px.cmd"\n"' > .npmrc
 ```
 
 ## See Also

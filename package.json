@@ -7,7 +7,7 @@
   "license": "MIT",
   "files": ["index.js", "src"],
   "scripts": {
-    "test": "ava",
+    "test": "ava test/test-runtime.js",
     "dev": "ava --watch & linterjs . --watch",
     "start": "node -r @std/esm ./index.js"
   },

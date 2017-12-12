@@ -43,17 +43,19 @@ test("understand logical and command", async t => {
 
 const trim = promisedString => promisedString.then(s => s.trim());
 
-test("redirect stdout", async t => {
+test.only("redirect stdout", async t => {
   const runtime = runtimeFactory();
-  await unlink(join(tmpdir(), "piper42")).catch(() => 0);
+  const tmpFile = join(tmpdir(), "piper42");
+  console.error(tmpFile);
+  await unlink(tmpFile).catch(() => 0);
 
   const proc = runtime.run(
-    `echo aa df ab ff | wc -w > ${join(tmpdir(), "piper42")}`,
+    `echo aa df ab ff | node -e 'process.stdin.on("data", d => console.log(d.toString("utf8")))' > ${tmpFile}`,
     false
   );
 
   await proc.exitCode;
-  t.is(await trim(readFile(join(tmpdir(), "piper42"), "utf8")), "4");
+  t.is(await trim(readFile(tmpFile, "utf8")), "aa df ab ff");
 });
 
 test("redirect stdin", async t => {

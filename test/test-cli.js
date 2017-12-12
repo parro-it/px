@@ -65,3 +65,12 @@ test("setting env variable", async t => {
 test("asynchronous execution of a process", async t => {
   t.is(await runNpm("parallel"), `1\n2`);
 });
+
+test.todo("redirection of stdout");
+test.todo("redirection of stdin");
+test.todo("pipe two commands");
+test.todo("appending redirection of stdout");
+test.todo("no-overwriting redirection of stdout");
+test.todo("variable expansion");
+test.todo("glob expansion");
+test.todo("tilde expansion");
