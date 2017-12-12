@@ -8,12 +8,9 @@ test("run a command", async t => {
   const proc = await execa("node", [
     `${__dirname}/../src/cli.js`,
     "-c",
-    `find ${__dirname}`
+    `echo ${__dirname}`
   ]);
-  t.is(
-    proc.stdout,
-    `${__dirname}\n${__dirname}/test-cli.js\n${__dirname}/test-runtime.js`
-  );
+  t.is(proc.stdout, __dirname);
 });
 
 async function runNpm(...args) {
