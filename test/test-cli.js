@@ -10,8 +10,7 @@ test("run a command", async t => {
     "-c",
     `echo 42`
   ]);
-  console.error({ o: proc.stdout });
-  t.is(proc.stdout, 42);
+  t.is(proc.stdout, "42");
 });
 
 async function runNpm(...args) {
