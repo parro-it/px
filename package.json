@@ -18,7 +18,7 @@
     "px": "src/cli.js"
   },
   "engines": {
-    "node": ">8.8"
+    "node": ">9"
   },
   "keywords": [],
   "ava": {
