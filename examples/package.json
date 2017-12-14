@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "test": "echo it work!",
-    "semicolon": "echo 1; echo 2",
-    "and": "echo 1 && echo 2",
-    "or": "false || echo 1",
+    "test": "node -p '`it work!`'",
+    "semicolon": "node -p 1; node -p 2",
+    "and": "node -p 1 && node -p 2",
+    "or": "false || node -p 1",
     "env": "var=42 node -p 'process.env.var'",
     "parallel": "node -e 'setTimeout(()=>console.log(2),600)' & node -e 'setTimeout(()=>console.log(1),100)'"
   },

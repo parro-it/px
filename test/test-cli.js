@@ -8,7 +8,7 @@ test("run a command", async t => {
   const proc = await execa("node", [
     `${__dirname}/../src/cli.js`,
     "-c",
-    `echo 42`
+    `node -p 42`
   ]);
   t.is(proc.stdout, "42");
 });
