@@ -76,17 +76,19 @@ cmd1 & cmd2 & cmd3
 $ npm i @posix/px
 ```
 
-2. Write a `.npmrc` file to configure it:
+2. Add a line to your project `.npmrc` file to configure the script-shell config:
 
-```bash
-$ echo 'script-shell = "px"\n' > .npmrc
+```
+script-shell = "px"
 ```
 
 **_on windows you shall use px.cmd:_**
 
-```bash
-$ echo 'script-shell = "px.cmd"\n' > .npmrc
 ```
+px.cmd
+```
+
+> The setup process above will be automated using a `px --init` command.
 
 ## See Also
 
