@@ -5,26 +5,21 @@
   "repository": "parro-it/px",
   "author": "Andrea Parodi <andrea@parro.it>",
   "license": "MIT",
-  "files": [
-    "index.js",
-    "src"
-  ],
+  "files": ["index.js", "src"],
   "scripts": {
     "test": "ava && linterjs .",
     "dev": "ava --watch & linterjs . --watch",
     "start": "node -r @std/esm ./index.js"
   },
   "bin": {
-    "px": "src/cli.js"
+    "px.cmd": "src/cli.js"
   },
   "engines": {
     "node": ">9"
   },
   "keywords": [],
   "ava": {
-    "require": [
-      "@std/esm"
-    ]
+    "require": ["@std/esm"]
   },
   "@std/esm": {
     "esm": "js",
