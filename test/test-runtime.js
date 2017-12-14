@@ -21,23 +21,24 @@ test("result has stdin/stdout/stderr", t => {
 
 test("create a runtime object", t => {
   const runtime = runtimeFactory();
-
   t.is(typeof runtime, "object");
 });
 
+
 test("run simple commands", async t => {
   const runtime = runtimeFactory();
-  const proc = runtime.run("echo ciao\n", false);
+  const proc = runtime.run("node -p '`ciao`'", false);
   t.is(await proc.stdout.utf8String(), "ciao");
 });
+
 
 test("understand logical and command", async t => {
   const runtime = runtimeFactory();
   const proc = runtime.run(
-    "echo -n 1 && echo -n 2 && false && echo -n 3",
+    "node -p 1 && node -p 2 && node -e 'process.exit(1)' && node -p 3",
     false
   );
-  t.is(await proc.stdout.utf8String(), "12");
+  t.is(await proc.stdout.utf8String(), "1\n2");
 });
 
 const trim = promisedString => promisedString.then(s => s.trim());
@@ -48,8 +49,8 @@ test("redirect stdout", async t => {
   await unlink(tmpFile).catch(() => 0);
 
   const proc = runtime.run(
-    `echo aa df ab ff > ${tmpFile.replace(/\\/g, "\\\\")}`,
-    false
+    `node -p '"aa df ab ff"' > ${tmpFile.replace(/\\/g, "/")}`,
+    true
   );
 
   await proc.exitCode;
@@ -58,6 +59,7 @@ test("redirect stdout", async t => {
   await unlink(tmpFile).catch(() => 0);
 });
 
+
 test("redirect stdin", async t => {
   const runtime = runtimeFactory();
   const tmpFile = join(__dirname, "piper42bis");
@@ -65,7 +67,7 @@ test("redirect stdin", async t => {
   await unlink(tmpFile).catch(() => 0);
 
   await writeFile(tmpFile, "aa df ab ff");
-  const proc = runtime.run(`cat < ${tmpFile.replace(/\\/g, "\\\\")}`, false);
+  const proc = runtime.run(`node -e 'process.stdin.pipe(process.stdout)' < ${tmpFile.replace(/\\/g, "/")}`, false);
 
   const ret = await proc.stdout.utf8String();
   await unlink(tmpFile).catch(() => 0);

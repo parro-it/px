@@ -6,7 +6,7 @@
     "test": "node -p '`it work!`'",
     "semicolon": "node -p 1; node -p 2",
     "and": "node -p 1 && node -p 2",
-    "or": "false || node -p 1",
+    "or": "node -e 'process.exit(1)' || node -p 1",
     "env": "var=42 node -p 'process.env.var'",
     "parallel": "node -e 'setTimeout(()=>console.log(2),600)' & node -e 'setTimeout(()=>console.log(1),100)'"
   },
