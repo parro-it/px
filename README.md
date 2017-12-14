@@ -73,7 +73,7 @@ cmd1 & cmd2 & cmd3
 1. Install `px`:
 
 ```bash
-$ npm i @posix/px
+$ npm i @posix/px --save-dev
 ```
 
 2. Add a line to your project `.npmrc` file to configure the script-shell config:
