@@ -12,7 +12,8 @@
     "start": "node -r @std/esm ./index.js"
   },
   "bin": {
-    "px.cmd": "src/cli.js"
+    "px.cmd": "src/cli.js",
+    "px": "src/cli.js"
   },
   "engines": {
     "node": ">9"
