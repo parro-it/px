@@ -33,6 +33,11 @@ test.before("install examples deps", async () => {
         `${__dirname}/../examples/.npmrc`,
         'script-shell = "px.cmd"\n'
       );
+    } else {
+      await writeFile(
+        `${__dirname}/../examples/.npmrc`,
+        'script-shell = "px"\n'
+      );
     }
     await execa("npm", ["--silent", "install"], {
       cwd: `${__dirname}/../examples`
@@ -50,17 +55,13 @@ test("semicolon", async t => {
   t.is(await runNpm("semicolon"), `1\n2`);
 });
 
-
 test("setting env variable", async t => {
   t.is(await runNpm("env"), `42`);
 });
 
-
 test("asynchronous execution of a process", async t => {
   t.is(await runNpm("parallel"), `1\n2`);
 });
-
-
 
 test("logical and", async t => {
   t.is(await runNpm("and"), `1\n2`);
@@ -69,9 +70,6 @@ test("logical and", async t => {
 test("logical or", async t => {
   t.is(await runNpm("or"), `1`);
 });
-
-
-
 
 test.todo("redirection of stdout");
 test.todo("redirection of stdin");
